@@ -1,0 +1,134 @@
+
+
+
+<html><head><title>JPetStore Demo</title>
+{% csrf_token %}
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type" />
+<META HTTP-EQUIV="Cache-Control" CONTENT="max-age=0">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="expires" content="0">
+<META HTTP-EQUIV="Expires" CONTENT="Tue, 01 Jan 1980 1:00:00 GMT">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+</head>
+
+<body bgcolor="white">
+{% load static %}
+<table background="{% static "images/bkg-topbar.gif" %}" border="0" cellspacing="0" cellpadding="5" width="100%">
+  <tbody>
+  <tr>
+    <td><a href="/shop/index.do"><img border="0" src= "{% static "images/logo-topbar.gif" %}" /></a></td>
+    <td align="right"><a href="/shop/viewCart.do"><img border="0" name="img_cart" src= "{% static "images/cart.gif" %}" /></a> 
+      <img border="0" src= "{% static "images/separator.gif" %}" />
+
+
+
+
+       <a href="{% url 'Signout' %}"><img border="0" name="img_signin" src= "{% static "images/sign-out.gif" %}" /></a>
+
+      <img border="0" src= "{% static "images/separator.gif" %}" />
+     <a href="{% url 'Loadupdate' %}"><img border="0" name="img_myaccount" src="{% static "images/my_account.gif" %}" /></a>
+
+
+      <img border="0" src= "{% static "images/separator.gif" %}" /><a href="../help.html"><img border="0" name="img_help" src= "{% static "images/help.gif" %}" /></a>
+    </td>
+    <td align="left" valign="bottom">
+      <form action="/shop/searchProducts.do" method="post">{% csrf_token %}
+			  <input type="hidden" name="search" value="true"/>
+        <input name="keyword" size="14" />&nbsp;<input border="0" src= "{% static "images/search.gif" %}" type="image"/>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<center>
+{% csrf_token %}
+
+<a href="{% url 'Category' %}?value=1" >
+<img border="0" src="{% static "images/sm_fish.gif" %}"/></a>
+<img border="0" src="{% static "images/separator.gif" %}" />
+<a href="{% url 'Category' %}?value=2">
+<img border="0" src="{% static "images/sm_dogs.gif" %}"/></a>
+<img border="0" src="{% static "images/separator.gif" %}" />
+<a href="{% url 'Category' %}?value=3">
+<img border="0" src="{% static "images/sm_reptiles.gif" %}"/></a>
+<img border="0" src="{% static "images/separator.gif" %}" />
+<a href="{% url 'Category' %}?value=4"">
+<img border="0" src="{% static "images/sm_cats.gif" %}"/></a>
+<img border="0" src="{% static "images/separator.gif" %}" />
+<a href="{% url 'Category' %}?value=5"">
+<img border="0" src="{% static "images/sm_birds.gif" %}"/></a>
+</center>
+
+
+
+
+<!-- Support for Spring errors object -->
+
+
+{% csrf_token %}
+{{error_print}}
+
+
+
+<form action="{% url 'SaveUser' %}" method="post">{% csrf_token %}
+
+
+<table cellpadding="10" cellspacing="0" align="center" border="1" bgcolor="#dddddd"><tr><td>
+
+<font color="darkgreen"><h3>User Information</h3></font>
+<table border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFF88">
+<tr bgcolor="#FFFF88"><td>
+{% csrf_token %}
+{{form}}  
+</td></tr>
+</table>
+
+<FONT color=darkgreen><H3>Account Information</H3></FONT>
+
+<TABLE bgcolor="#FFFF88" border=0 cellpadding=3 cellspacing=1 bgcolor="#FFFF88">
+{% csrf_token %}
+{{form1}}    
+</TD></TR>
+</TABLE>
+<FONT color=darkgreen><H3>Profile Information</H3></FONT>
+
+<TABLE bgcolor="#FFFF88" border=0 cellpadding=3 cellspacing=1 >
+<TR bgcolor="#FFFF88"><TD>
+{% csrf_token %}
+{{form2}}
+</TD></TR>
+</TABLE>
+
+
+</td></tr></table>
+
+<br /><center>
+<input border="0" type="image" src= "{% static "images/button_submit.gif" %}" name="submit" value="Save Account Information" />
+</center>
+
+</html:form>
+<p>
+<center><b><a href="/shop/listOrders.do">My Orders</a></b></center>
+
+<p>&nbsp;</p>
+
+<table align="center">
+  <tr>
+	  <td>
+			<a href="http://www.springframework.org">
+				<img border="0" align="center" src= "{% static "images/poweredBySpring.gif" %}" alt="Powered by the Spring Framework"/>
+			</a>
+		</td>
+		<td>
+			<a href="http://www.ibatis.com">
+				<img border="0" align="center" src= "{% static "images/poweredby.gif" %}" alt="Powered by iBATIS"/>
+			</a>
+		</td>
+	</tr>
+</table>
+
+<p align="center">
+	(Vineet's final project live --- Register user Page)
+</p>
+</p>
